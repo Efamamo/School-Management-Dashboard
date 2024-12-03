@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "gender": "Male",
+    "age": 15,
+    "class": "10A",
+    "status": "Active",
+    "contact": "123456789",
+    "address": "123 Main St"
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "gender": "Female",
+    "age": 14,
+    "class": "9B",
+    "status": "Inactive",
+    "contact": "987654321",
+    "address": "456 Elm St"
+  }
+]
