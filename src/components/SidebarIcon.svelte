@@ -1,14 +1,38 @@
 <script>
-    export let icon = '';
-    export let name = ''
-</script>
+    export let icon = ''; // Icon class for the main button
+    export let name = ''; // Name to display
+    export let dropdowns = []
 
-<div class="flex justify-between items-center cursor-pointer hover:bg-gray-200 py-3 pl-5 text-gray-600">
+    let isOpen = false;
+  </script>
+  
+  <button
+    class="flex justify-between items-center cursor-pointer hover:bg-gray-200 py-3 pl-5 pr-2 text-gray-600"
+    on:click={() => (isOpen = !isOpen)}
+  >
     <div class="flex gap-2 items-center">
-        <i class="w-4 h-4" data-feather="{icon}"></i>
-        <p class="text-sm">{name}</p>
+      <!-- Main icon -->
+      <i class="{icon} text-gray-500 text-sm"></i>
+      <p class="text-sm">{name}</p>
     </div>
-    
-    <i class="w-3 h-3 mr-2" data-feather="plus" style="stroke-width: 4;"></i>
+    {#if isOpen && dropdowns.length > 0}
+      <!-- Minus icon -->
+      <i class="fas fa-minus text-gray-500 text-xs"></i>
+    {:else if !isOpen && dropdowns.length > 0}
+      <!-- Plus icon -->
+      <i class="fas fa-plus text-gray-500 text-xs"></i>
+    {/if}
+  </button>
+  
+  {#if isOpen && dropdowns.length > 0}
+  <div>
+    {#each dropdowns as dropdown}
+    <div class="flex items-center gap-2 hover:bg-gray-200 pl-7">
+      <i class="fas fa-chevron-right text-gray-500 text-xs"></i>
+      <a href="#option1" class="block py-2 text-xs text-gray-700">{dropdown}</a>
+    </div>
+    {/each}
 
-</div>
+  </div>
+  {/if}
+  
