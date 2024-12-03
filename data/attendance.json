@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Kaleb Asratemedin",
+    "student_id": 1,
+    "date": "2024-12-01",
+    "status": "Present"
+  },
+  {
+    "id": 2,
+    "name": "Yohannes Alemayehu",
+    "student_id": 2,
+    "date": "2024-12-01",
+    "status": "Absent"
+  }
+]

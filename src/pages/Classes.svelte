@@ -18,7 +18,7 @@
     <Sidebar/>
     <div class="flex-1">
         <Topbar/>
-        <div class="py-4 px-8 min-h-screen">
+        <div class="py-4 px-8 min-h-screen" style="background-color: #f6f6f6;">
             <h1 class="text-2xl font-bold mb-4">Classes</h1>
             <ul class="list-disc pl-6">
               {#each classes as cls}
