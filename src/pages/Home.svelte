@@ -2,6 +2,8 @@
     import Sidebar from "../components/Sidebar.svelte";
     import Topbar from "../components/Topbar.svelte";
     import OverviewCard from "../components/OverviewCard.svelte";
+    import Events from "../components/Events.svelte";
+    import Announcements from "../components/Announcements.svelte";
 </script>
 
 <main class="flex">
@@ -24,9 +26,14 @@
 
             <div>
                 <h1 class="text-2xl font-bold mb-6 text-gray-700">Events / Announcements.</h1>
+                <div class="flex gap-20 items-start">
+                    <Events/>
+                    <Announcements/>
+                </div>
             </div>
             
         </div>
+
     </div>
 </main>
 
