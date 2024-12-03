@@ -1,4 +1,6 @@
 <script>
+  import { Link } from "svelte-routing";
+
     export let icon = ''; // Icon class for the main button
     export let name = ''; // Name to display
     export let dropdowns = []
@@ -26,7 +28,7 @@
     {#each dropdowns as dropdown}
     <div class="flex items-center gap-3 hover:bg-gray-200 pl-7">
       <i class="fas fa-chevron-right text-gray-500 text-xs"></i>
-      <a href="#option1" class="block py-2 text-xs text-gray-700">{dropdown}</a>
+      <Link to={dropdown.link} class="block py-2 text-xs text-gray-700">{dropdown.name}</Link>
     </div>
     {/each}
 

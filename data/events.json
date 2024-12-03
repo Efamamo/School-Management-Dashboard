@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "title": "Annual Sports Day",
+    "date": "2024-12-15",
+    "description": "A day filled with sports and activities.",
+    "location": "School Ground"
+  },
+  {
+    "id": 2,
+    "title": "Science Fair",
+    "date": "2024-12-20",
+    "description": "Showcasing innovative projects by students.",
+    "location": "Auditorium"
+  }
+]

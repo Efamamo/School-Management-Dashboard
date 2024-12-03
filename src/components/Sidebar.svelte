@@ -1,4 +1,5 @@
 <script>  
+  import { Link } from 'svelte-routing';
 import SidebarIcon from './SidebarIcon.svelte';
 </script>
 
@@ -10,37 +11,37 @@ import SidebarIcon from './SidebarIcon.svelte';
 
     <div>
         <p class="text-xs pl-3 text-gray-600">MAIN</p>
-        <div class="mt-3 flex flex-col mb-6">
+        <Link to="/" class="mt-3 flex flex-col mb-6">
             <SidebarIcon name="Dashboard" icon="fas fa-tv" />
-        </div>
+        </Link>
 
         <p class="text-xs pl-3 text-gray-600">PEOPLE</p>
         <div class="mt-3 flex flex-col mb-6">
             <SidebarIcon name="Students" icon="fas fa-user-graduate" dropdowns={[
-                "All Students", "Add Student"
+               {name: "All Students", link:"/students"}, {name: "Add Student", link: "/students/add"}
             ]}/>
             <SidebarIcon name="Teachers" icon="fas fa-chalkboard-teacher" dropdowns={[
-                "All Teachers", "Add Teacher"
+                {name: "All Teachers", link:"/teachers"}, {name: "Add Teacher", link:"/teachers/add"}
             ]}/>
         </div>
 
         <p class="text-xs pl-3 text-gray-600">CLASS</p>
         <div class="mt-3 flex flex-col mb-6">
             <SidebarIcon name="Classes" icon="fas fa-layer-group" dropdowns={[
-                "All Classes", "Add Class"
+                {name: "All Classes", link: "/classes"}, {name: "Add Class", link: "/classes/add"}
             ]}/>
             <SidebarIcon name="Attendance" icon="fas fa-check-circle" dropdowns={[
-                "All Attendances"
+                {name:"All Attendances", link: "/attendances"}
             ]}/>
         </div>
 
         <p class="text-xs pl-3 text-gray-600">OTHER</p>
         <div class="mt-3 flex flex-col mb-6">
             <SidebarIcon name="Performance Report" icon="fas fa-file-alt" dropdowns={[
-                "All Grades", "Add Grade", "Generate Report"
+                {name: "All Grades",link: "/grades"}, {name: "Add Grade", link: "/grades/add"}, {name: "Generate Report", link: "/generate"}
             ]}/>
             <SidebarIcon name="Events" icon="fas fa-calendar-alt" dropdowns={[
-                "All Events", "Add Event"
+                {name: "All Events",link:"/events"}, {name: "Add Event", link: "/events/add"}
             ]}/>
         </div>
     </div>
