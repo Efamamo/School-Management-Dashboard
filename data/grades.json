@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "Kaleb Asratemedin",
+    "student_id": 1,
+    "subject": "Mathematics",
+    "grade": "A"
+  },
+  {
+    "id": 2,
+    "name": "Yohannes Alemayehu",
+
+    "student_id": 2,
+    "subject": "English",
+    "grade": "B+"
+  }
+]
