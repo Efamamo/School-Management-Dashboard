@@ -7,19 +7,16 @@
   </script>
   
   <button
-    class="flex justify-between items-center cursor-pointer hover:bg-gray-200 py-3 pl-5 pr-2 text-gray-600"
+    class="flex justify-between items-center cursor-pointer hover:bg-gray-200 py-3 pl-5 pr-3 text-gray-600"
     on:click={() => (isOpen = !isOpen)}
   >
-    <div class="flex gap-2 items-center">
-      <!-- Main icon -->
+    <div class="flex gap-3 items-center">
       <i class="{icon} text-gray-500 text-sm"></i>
       <p class="text-sm">{name}</p>
     </div>
     {#if isOpen && dropdowns.length > 0}
-      <!-- Minus icon -->
       <i class="fas fa-minus text-gray-500 text-xs"></i>
     {:else if !isOpen && dropdowns.length > 0}
-      <!-- Plus icon -->
       <i class="fas fa-plus text-gray-500 text-xs"></i>
     {/if}
   </button>

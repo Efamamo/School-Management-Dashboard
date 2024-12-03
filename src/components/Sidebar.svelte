@@ -2,7 +2,7 @@
 import SidebarIcon from './SidebarIcon.svelte';
 </script>
 
-<aside class="border-r max-w-64 min-h-screen">
+<aside class="border-r w-64 min-h-screen">
     <div class="flex my-5 justify-center gap-4 items-center">
         <img src="/assets/school.png" alt="" width="40">
         <h3 class="text-2xl font-semibold mt-2">SMAR</h3>
