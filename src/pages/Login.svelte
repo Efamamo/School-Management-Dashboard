@@ -60,7 +60,7 @@
         
          <div class="flex gap-1.5 justify-center">
             <p>Don't have an account?</p>
-            <a href="" class="text-blue-600">Signup</a>
+            <a href="#optional" class="text-blue-600">Signup</a>
          </div>
     </div>
 </main>
