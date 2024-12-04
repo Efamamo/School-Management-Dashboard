@@ -8,6 +8,7 @@ import Classes from './pages/Classes.svelte';
 import Attendance from './pages/Attendance.svelte';
 import Grades from './pages/Grade.svelte';
 import Events from './pages/Events.svelte';
+import AddStudent from './pages/AddStudent.svelte';
 
 export const routes = [
   { path: '/', component: Home },
@@ -18,4 +19,5 @@ export const routes = [
   { path: '/attendances', component: Attendance },
   { path: '/grades', component: Grades },
   { path: '/events', component: Events },
+  { path: '/students/add', component: AddStudent },
 ];

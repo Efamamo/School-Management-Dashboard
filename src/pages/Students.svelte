@@ -3,13 +3,27 @@
     import Sidebar from "../components/Sidebar.svelte";
     import Topbar from "../components/Topbar.svelte";
     import {SchoolStore} from '../stores'
+  import { Link } from "svelte-routing";
       
     onMount(async () => {
       const res = await fetch("/data/students.json");
       const students = await res.json();
 
       SchoolStore.update((currentState) => {
-        return {...currentState, students}
+        const newStudents = []
+        for (let s of students){
+          let add = true;
+          for (let student of currentState.students){
+            if (student.id === s.id){
+              add = false
+            }
+          }
+          if (add){
+            newStudents.push(s)
+          }
+        }
+
+        return {...currentState, students: [...currentState.students, ...newStudents]}
       })
     });
 </script>
@@ -18,6 +32,8 @@
     <div class="flex-1">
         <Topbar/>
         <div class="py-4 px-8 min-h-screen" style="background-color: #f6f6f6;">
+          <Link to='/students/add' class="p-2 text-center bg-blue-600  text-white font-semibold rounded-md block ml-auto w-32 mt-10">Add New</Link>
+
             <h1 class="text-2xl font-bold mb-4">Students</h1>
             <table class="table-auto w-full text-left">
               <thead>
