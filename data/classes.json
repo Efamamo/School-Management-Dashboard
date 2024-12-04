@@ -2,13 +2,13 @@
   {
     "id": 1,
     "name": "10A",
-    "teacher": "Mr. Anderson",
-    "students_count": 30
+    "students_count": 30,
+    "teachers_count": 8
   },
   {
     "id": 2,
     "name": "9B",
-    "teacher": "Ms. Johnson",
-    "students_count": 28
+    "students_count": 28,
+    "teachers_count": 10
   }
 ]

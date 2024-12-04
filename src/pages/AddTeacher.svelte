@@ -8,18 +8,18 @@
     let name = '';
     let year = 0;
     let department = '';
-    let section = 0;
+    let experiance = 0;
     let email = '';
-    let status = '';
+    let subject = '';
 
     let nameError = '';
     let genderError = '';
     let ageError = '';
     let yearError = '';
-    let sectionError = '';
+    let experianceError = '';
     let departmentError = '';
     let emailError = '';
-    let statusError = '';
+    let subjectError = '';
 
     const isValid = () => {
         return age >= 18
@@ -28,10 +28,9 @@
             && year <= 7
             && (gender === "Male" || gender === "Female")
             && department
-            && section > 0
-            && section < 20
+            && experiance >= 0
             && email
-            && (status === "Active" || status === "Inactive");
+            && (subject);
     };
 
     const handleSubmit = (e) => {
@@ -41,27 +40,27 @@
             nameError = '';
             ageError = '';
             yearError = '';
-            sectionError = '';
+            subjectError = '';
             departmentError = '';
             emailError = '';
-            statusError = '';
+            experianceError= '';
 
             SchoolStore.update((currentState) => {
                 return {
                     ...currentState,
-                    students: [
-                        ...currentState.students,
-                        { name, department, email, section, year, age, status, gender, grade:0, id:currentState.students.length + 1 }
+                    teachers: [
+                        ...currentState.teachers,
+                        { name, department, email, subject, year, age, experiance, gender, grade:0, id:currentState.students.length + 1 }
                     ]
                 };
             });
 
             name = '';
-            section = 0;
+            experiance = 0;
             department = '';
             age = 0;
             gender = '';
-            status = '';
+            subject = '';
             email = '';
             year = 0;
             alert("Student added successfully");
@@ -71,9 +70,9 @@
             yearError = (year <= 0 || year > 7) ? 'Please choose a valid year (1-7).' : '';
             genderError = (gender !== "Male" && gender !== "Female") ? 'Please choose gender.' : '';
             departmentError = !department ? 'Please choose department.' : '';
-            sectionError = (section <= 0 || section >= 20) ? 'Please choose a valid section (1-19).' : '';
+            experianceError = (experiance < 0) ? 'Please choose a valid year of experiance (1-19).' : '';
             emailError = !email ? 'Please enter email address.' : '';
-            statusError = !status ? 'Please choose status.' : '';
+            subjectError = !status ? 'Please choose subject.' : '';
         }
     };
 </script>
@@ -83,7 +82,7 @@
     <div class="flex-1">
         <Topbar />
         <div class="max-w-2xl mx-2 md:mx-auto mt-20 md:mt-36 px-5 md:px-20 py-10 border rounded-md">
-            <h2 class="text-center mb-8 text-2xl font-bold">Add Student</h2>
+            <h2 class="text-center mb-8 text-2xl font-bold">Add Teacher</h2>
             <form class="mb-4" on:submit={handleSubmit}>
                 <!-- Name -->
                 <div class="flex flex-col gap-1 mb-4">
@@ -136,9 +135,9 @@
                      <!-- Section -->
                      <div class="flex flex-col gap-1 mb-4 flex-1">
                         <label for="section">Section</label>
-                        <input type="number" id="section" class="border border-gray-300 p-2 rounded-md focus:border-gray-400 focus:outline-none" bind:value={section} min='1' max='20'>
-                        {#if sectionError}
-                            <p class="text-sm text-red-600">{sectionError}</p>
+                        <input type="number" id="section" class="border border-gray-300 p-2 rounded-md focus:border-gray-400 focus:outline-none" bind:value={experiance} min='1' max='20'>
+                        {#if experianceError}
+                            <p class="text-sm text-red-600">{experianceError}</p>
                         {/if}
                     </div>
                     <!-- Age -->
@@ -181,19 +180,19 @@
                 <!-- Status -->
                 <div class="flex flex-col gap-1 mb-4 flex-1">
                     <label for="status">Status</label>
-                    <select id="status" class="border border-gray-300 bg-white p-2 rounded-md focus:border-gray-400 focus:outline-none" bind:value={status}>
-                        <option value="">Select Status</option>
-                        <option value="Active">Active</option>
-                        <option value="Inactive">Inactive</option>
+                    <select id="status" class="border border-gray-300 bg-white p-2 rounded-md focus:border-gray-400 focus:outline-none" bind:value={subject}>
+                        <option value="">Select Subject</option>
+                        <option value="Computer Architecture">Computer Architecture</option>
+                        <option value="Web Developement">Web Developement</option>
                     </select>
-                    {#if statusError}
-                        <p class="text-sm text-red-600">{statusError}</p>
+                    {#if subjectError}
+                        <p class="text-sm text-red-600">{subjectError}</p>
                     {/if}
                 </div>
                 </div>
 
                 <!-- Submit Button -->
-                <button class="p-2 text-center bg-blue-600 w-full text-white font-semibold rounded-md">Add Student</button>
+                <button class="p-2 text-center bg-blue-600 w-full text-white font-semibold rounded-md">Add Teacher</button>
             </form>
         </div>
     </div>

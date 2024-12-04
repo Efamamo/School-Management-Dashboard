@@ -1,19 +1,21 @@
 [
   {
-    "id": 1,
-    "name": "John Doe",
+    "id": 2130,
+    "name": "Kaleb Asratemedin",
     "gender": "Male",
     "age": 15,
+    "grade": "3.7",
     "class": "10A",
     "status": "Active",
     "contact": "123456789",
     "address": "123 Main St"
   },
   {
-    "id": 2,
-    "name": "Jane Smith",
-    "gender": "Female",
+    "id": 3105,
+    "name": "Yohannes Alemayehu",
+    "gender": "Male",
     "age": 14,
+    "grade": "3.8",
     "class": "9B",
     "status": "Inactive",
     "contact": "987654321",
