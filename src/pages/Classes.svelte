@@ -2,13 +2,16 @@
     import { onMount } from "svelte";
     import Sidebar from "../components/Sidebar.svelte";
     import Topbar from "../components/Topbar.svelte";
-  
-    let classes = [];
+    import {SchoolStore} from '../stores'
 
+  
   
     onMount(async () => {
       const res = await fetch("/data/classes.json");
-      classes = await res.json();
+      const classes = await res.json();
+      SchoolStore.update((currentState) => {
+        return {...currentState, classes}
+      })
     });
   </script>
   
@@ -21,7 +24,7 @@
         <div class="py-4 px-8 min-h-screen" style="background-color: #f6f6f6;">
             <h1 class="text-2xl font-bold mb-4">Classes</h1>
             <ul class="list-disc pl-6">
-              {#each classes as cls}
+              {#each $SchoolStore.classes as cls}
                 <li class="mb-2">
                   <strong>Class {cls.name}</strong>: {cls.students_count} students taught by {cls.teacher}
                 </li>

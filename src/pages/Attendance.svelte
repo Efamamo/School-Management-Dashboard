@@ -1,13 +1,16 @@
 <script>
   import { onMount } from "svelte";
   import Sidebar from "../components/Sidebar.svelte";
-    import Topbar from "../components/Topbar.svelte";
+  import Topbar from "../components/Topbar.svelte";
+  import {SchoolStore} from '../stores'
 
-  let attendance = [];
 
   onMount(async () => {
     const res = await fetch("/data/attendance.json");
-    attendance = await res.json();
+    const attendances = await res.json();
+    SchoolStore.update((currentState) => {
+        return {...currentState, attendances}
+      })
   });
 </script>
 
@@ -31,8 +34,9 @@
         </tr>
       </thead>
       <tbody>
-        {#each attendance as record}
+        {#each $SchoolStore.attendances as record}
           <tr>
+            <td class="border px-4 py-2">{record.student_id}</td>
             <td class="border px-4 py-2">{record.name}</td>
             <td class="border px-4 py-2">{record.date}</td>
             <td class="border px-4 py-2">{record.status}</td>

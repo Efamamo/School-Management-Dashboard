@@ -26,10 +26,10 @@
   {#if isOpen && dropdowns.length > 0}
   <div>
     {#each dropdowns as dropdown}
-    <div class="flex items-center gap-3 hover:bg-gray-200 pl-7">
+    <Link to={dropdown.link} class="flex items-center gap-3 hover:bg-gray-200 pl-7">
       <i class="fas fa-chevron-right text-gray-500 text-xs"></i>
-      <Link to={dropdown.link} class="block py-2 text-xs text-gray-700">{dropdown.name}</Link>
-    </div>
+      <p class="block py-2 text-xs text-gray-700">{dropdown.name}</p>
+    </Link>
     {/each}
 
   </div>

@@ -2,19 +2,16 @@
     import { onMount } from "svelte";
     import Sidebar from "../components/Sidebar.svelte";
     import Topbar from "../components/Topbar.svelte";
-  
-    let grades = [];
+    import {SchoolStore} from '../stores'
   
     onMount(async () => {
       const res = await fetch("/data/grades.json");
-      grades = await res.json();
+      const grades = await res.json();
+      SchoolStore.update((currentState) => {
+        return {...currentState, grades}
+      })
     });
   </script>
-  
- 
-
-  
- 
 
 <main class="flex">
     <Sidebar/>
@@ -26,14 +23,16 @@
                 <table class="table-auto w-full text-left">
                   <thead>
                     <tr>
+                      <th class="border px-4 py-2">Id</th>
                       <th class="border px-4 py-2">Student</th>
                       <th class="border px-4 py-2">Subject</th>
                       <th class="border px-4 py-2">Grade</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {#each grades as grade}
+                    {#each $SchoolStore.grades as grade}
                       <tr>
+                        <td class="border px-4 py-2">{grade.student_id}</td>
                         <td class="border px-4 py-2">{grade.name}</td>
                         <td class="border px-4 py-2">{grade.subject}</td>
                         <td class="border px-4 py-2">{grade.grade}</td>

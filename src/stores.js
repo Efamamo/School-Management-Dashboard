@@ -1,3 +1,10 @@
 import { writable } from 'svelte/store';
 
-export const StudentsStore = writable();
+export const SchoolStore = writable({
+  students: [],
+  teachers: [],
+  classes: [],
+  grades: [],
+  attendances: [],
+  events: [],
+});
